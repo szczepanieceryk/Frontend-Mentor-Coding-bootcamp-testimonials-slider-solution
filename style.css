@@ -29,9 +29,6 @@ img {
     position: relative;
     text-align: center;
     color: var(--dark-blue);
-    /* background-image: url(./images/pattern-bg.svg); */
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 .app-wrapper::before{
     content: url(./images/pattern-curve.svg);
@@ -105,8 +102,6 @@ img {
     #one{order:2}
    .app-wrapper{
         padding: 4em;
-       background-size:70vh;
-       background-position:top right;
     }
     /* slider handler */
     .slider-handler{
@@ -138,8 +133,3 @@ img {
     }
 }
 
-@media screen and (min-width:1201px){
-    .app-wrapper{
-        /* background-position:left; */
-    }
-}
