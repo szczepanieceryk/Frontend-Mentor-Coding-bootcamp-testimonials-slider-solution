@@ -1,7 +1,9 @@
+// HTML elements
 const userImage = document.getElementsByClassName('img');
 const userTxt = document.getElementsByClassName('txt');
 const userName = document.getElementsByClassName('name')
 const userOccupation = document.getElementsByClassName('occupation')
+const slider = document.getElementById('slider')
 
 // testimonials data
 const userTestimonials = [
@@ -19,14 +21,27 @@ const userTestimonials = [
     },
 ]
 
-for (let i = 0; i < userTestimonials.length; i++) {
-    userImage[i].src = userTestimonials[i].img;
-    userTxt[i].innerText = userTestimonials[i].text
-    userName[i].innerText = userTestimonials[i].name
-    userOccupation[i].innerText = userTestimonials[i].occupation
+// initail data load
+window.onload = () => {
+    for (let i = 0; i < userTestimonials.length; i++) {
+        userImage[i].src = userTestimonials[i].img;
+        userTxt[i].innerText = userTestimonials[i].text
+        userName[i].innerText = userTestimonials[i].name
+        userOccupation[i].innerText = userTestimonials[i].occupation
+    }
 }
 
-// slider handler
-const sliderHandler = () => {
-    console.log('zmiana slideu')
-}
+// function for slider handler
+let active = 0;
+slider.addEventListener('click', () => {
+    active++
+    if (active === userTestimonials.length) {
+        active = 0;
+    }
+    for (let i = 0; i < userTestimonials.length; i++) {
+        userImage[i].src = userTestimonials[active].img;
+        userTxt[i].innerText = userTestimonials[active].text
+        userName[i].innerText = userTestimonials[active].name
+        userOccupation[i].innerText = userTestimonials[active].occupation
+    }
+})
